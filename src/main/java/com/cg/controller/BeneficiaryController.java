@@ -1,9 +1,14 @@
 package com.cg.controller;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,9 +35,20 @@ public class BeneficiaryController {
 	@Autowired
 	private BeneficiaryService beneService;
 
-	@PostMapping("/add_beneficiary")
-	public Beneficiary addBeneficiary(@RequestBody Beneficiary bene) {
-		return beneService.addBeneficiary(bene);
+	@PostMapping(value="/add_beneficiary",produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Beneficiary> addBeneficiary(@RequestBody Beneficiary bene) throws JSONException {
+		
+		if(beneService.isBeneficiaryExists(bene.getName(),bene.getMobilenumber(),bene.getAccountno()) <=0) {
+			return null;
+		}
+		else {
+			if(beneService.isBenificiaryLinked(bene.getCustid(),bene.getAccountno()) <=0) {
+				return beneService.addBeneficiary(bene);
+			}
+			else {
+				return beneService.getbycustomerid(bene.getCustid());
+			}
+		}
 	}
 
 	@GetMapping("/getall")

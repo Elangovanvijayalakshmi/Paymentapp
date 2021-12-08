@@ -24,6 +24,10 @@ public class Beneficiary {
 	protected String name;
 	@Column
 	protected BigInteger mobilenumber;
+	@Column 
+	protected int custid;
+	@Column 
+	protected BigInteger accountno;
 	
 
 	public Beneficiary() {
@@ -31,11 +35,23 @@ public class Beneficiary {
 	}
 
 
-	public Beneficiary(int bid, String name, BigInteger mobilenumber) {
+	public Beneficiary(int bid, String name, BigInteger mobilenumber, int custid, BigInteger accountno) {
 		super();
 		this.bid = bid;
 		this.name = name;
 		this.mobilenumber = mobilenumber;
+		this.custid = custid;
+		this.accountno = accountno;
+	}
+
+
+	public BigInteger getAccountno() {
+		return accountno;
+	}
+
+
+	public void setAccountno(BigInteger accountno) {
+		this.accountno = accountno;
 	}
 
 
@@ -69,10 +85,24 @@ public class Beneficiary {
 	}
 
 
+	public int getCustid() {
+		return custid;
+	}
+
+
+	public void setCustid(int custid) {
+		this.custid = custid;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Beneficiary [bid=" + bid + ", name=" + name + ", mobilenumber=" + mobilenumber + "]";
+		return "Beneficiary [bid=" + bid + ", name=" + name + ", mobilenumber=" + mobilenumber + ", custid=" + custid
+				+ ", accountno=" + accountno + "]";
 	}
+
+
+	
 
 
 	

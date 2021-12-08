@@ -1,7 +1,5 @@
 package com.cg.repository;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,6 +11,11 @@ import com.cg.entity.Wallet;
 
 @Repository
 public interface WalletRepo extends JpaRepository<Wallet, Integer> {
+	@Transactional
+	@Modifying
+	@Query(value="update wallet set balance=?1 where walletid=?2",nativeQuery=true)
+	void updatebalance(double bal,int walletid);
+	
 
 
 }

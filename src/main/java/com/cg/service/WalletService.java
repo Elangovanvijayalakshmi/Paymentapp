@@ -32,6 +32,11 @@ public class WalletService {
 		return wRepo.findById(id).get();
 	}
 	
+	public Wallet updateBalance(double bal,int walletid) {
+		 wRepo.updatebalance(bal, walletid);
+		 return wRepo.findById(walletid).get();
+	}
+	
 //	public List<Book> getAll(){
 //		return bRepo.findAll();
 //	}
