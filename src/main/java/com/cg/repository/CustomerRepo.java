@@ -1,5 +1,6 @@
 package com.cg.repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -15,6 +16,9 @@ import com.cg.entity.Wallet;
 
 @Repository
 public interface CustomerRepo extends JpaRepository<Customer, Integer> {
+
+	@Query(value = "SELECT * FROM Customer c WHERE c.MOBILE = ?1 AND c.password = ?2 order by custid fetch next 1 row only",nativeQuery = true)
+	Customer findBymobile(BigInteger mobile, String password);
 
 
 }

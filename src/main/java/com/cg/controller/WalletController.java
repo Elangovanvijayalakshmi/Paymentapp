@@ -31,7 +31,7 @@ public class WalletController {
 	private WalletService wservice;
 
 	@PostMapping("/addw")
-	public ResponseEntity<String> addWallet(@RequestBody Wallet w) {
+	public Wallet addWallet(@RequestBody Wallet w) {
 		return wservice.addWallet(w);
 
 	}

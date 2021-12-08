@@ -21,7 +21,7 @@ public class BankAccountController {
 	private BankAccountService baccountservice;
 
 	@PostMapping("/add")
-	public ResponseEntity<String> addBankAccount(@RequestBody Bankaccount ba) {
+	public Bankaccount addBankAccount(@RequestBody Bankaccount ba) {
 		return baccountservice.addBankAccount(ba);
 	}
 

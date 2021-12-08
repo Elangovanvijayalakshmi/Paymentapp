@@ -20,10 +20,10 @@ public class BeneficiaryService {
 
 	
 
-	public ResponseEntity<String> addBeneficiary(Beneficiary bene) {
+	public Beneficiary addBeneficiary(Beneficiary bene) {
 		// TODO Auto-generated method stub
-		benerepo.save(bene);
-		return new ResponseEntity("Added beneficiary successfully",HttpStatus.OK);
+		return benerepo.save(bene);
+		
 	}
 	
 	public List<Beneficiary> getall() {

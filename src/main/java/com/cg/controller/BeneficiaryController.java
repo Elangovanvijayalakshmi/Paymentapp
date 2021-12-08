@@ -31,7 +31,7 @@ public class BeneficiaryController {
 	private BeneficiaryService beneService;
 
 	@PostMapping("/add_beneficiary")
-	public ResponseEntity<String> addBeneficiary(@RequestBody Beneficiary bene) {
+	public Beneficiary addBeneficiary(@RequestBody Beneficiary bene) {
 		return beneService.addBeneficiary(bene);
 	}
 

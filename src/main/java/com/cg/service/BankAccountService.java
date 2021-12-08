@@ -18,9 +18,9 @@ public class BankAccountService {
 	@Autowired
 	private BankAccountRepo baRepo;
 
-	public ResponseEntity<String> addBankAccount(Bankaccount ba) {
-		baRepo.save(ba);
-		return new ResponseEntity("Added bankaccount sucessfully",HttpStatus.OK);
+	public Bankaccount addBankAccount(Bankaccount ba) {
+		return baRepo.save(ba);
+		
 	}
 
 	public List<Bankaccount> getall() {

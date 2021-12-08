@@ -25,6 +25,8 @@ public class Customer {
 	protected BigInteger mobile;
 	@Column
 	protected int wallet_id;
+	@Column
+	protected String password;
 	
 	
 
@@ -34,12 +36,13 @@ public class Customer {
 
 
 
-	public Customer(int custid, String name, BigInteger mobile, int wallet_id) {
+	public Customer(int custid, String name, BigInteger mobile, int wallet_id, String password) {
 		super();
 		this.custid = custid;
 		this.name = name;
 		this.mobile = mobile;
 		this.wallet_id = wallet_id;
+		this.password = password;
 	}
 
 
@@ -92,12 +95,27 @@ public class Customer {
 
 
 
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Customer [custid=" + custid + ", name=" + name + ", mobile=" + mobile + ", wallet_id=" + wallet_id
-				+ "]";
+				+ ", password=" + password + "]";
 	}
 
+
+
+	
 
 
 	

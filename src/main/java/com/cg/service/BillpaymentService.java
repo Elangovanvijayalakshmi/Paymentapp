@@ -20,10 +20,10 @@ public class BillpaymentService {
 	@Autowired
 	BillpaymentRepo billpaymentrepo;
 	
-	public ResponseEntity<String> addBill(Billpayment b) {
+	public Billpayment addBill(Billpayment b) {
 		b.setDdate(new Date());
-		billpaymentrepo.save(b);
-		return new ResponseEntity("Added bill sucessfully",HttpStatus.OK);
+		return billpaymentrepo.save(b);
+		
 	}
 
 	public List<Billpayment> getall() {

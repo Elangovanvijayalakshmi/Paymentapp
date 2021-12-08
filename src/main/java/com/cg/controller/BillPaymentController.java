@@ -21,7 +21,7 @@ public class BillPaymentController {
 	private BillpaymentService billpaymentservice;
 
 	@PostMapping("/add_billpayment")
-	public ResponseEntity<String> addBill(@RequestBody Billpayment bill) {
+	public Billpayment addBill(@RequestBody Billpayment bill) {
 		return billpaymentservice.addBill(bill);
 	}
 

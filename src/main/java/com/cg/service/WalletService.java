@@ -17,9 +17,9 @@ public class WalletService {
 	@Autowired
 	private WalletRepo wRepo;
 
-	public ResponseEntity<String> addWallet(Wallet w) {
-		wRepo.save(w);
-		return new ResponseEntity("Added Wallet sucessfully",HttpStatus.OK);
+	public Wallet addWallet(Wallet w) {
+		return wRepo.save(w);
+		
 	}
 	public List<Wallet> getall() {
 		// TODO Auto-generated method stub

@@ -1,5 +1,7 @@
 package com.cg.entity;
 
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,12 +14,7 @@ import javax.persistence.Table;
 @Entity
 public class Bankaccount {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE1")
-	@SequenceGenerator(name="SEQUENCE1", sequenceName="SEQUENCE1", allocationSize=1)
-	protected int accountno;
-	
-	
-
+	protected BigInteger accountno;
 	@Column
 	protected String ifsccode;
 	@Column
@@ -31,7 +28,7 @@ public class Bankaccount {
 
 	}
 
-	public Bankaccount(int accountno, String ifsccode, String bankname, int customer_id, double balance) {
+	public Bankaccount(BigInteger accountno, String ifsccode, String bankname, int customer_id, double balance) {
 		super();
 		this.accountno = accountno;
 		this.ifsccode = ifsccode;
@@ -40,11 +37,11 @@ public class Bankaccount {
 		this.balance = balance;
 	}
 
-	public int getAccountno() {
+	public BigInteger getAccountno() {
 		return accountno;
 	}
 
-	public void setAccountno(int accountno) {
+	public void setAccountno(BigInteger accountno) {
 		this.accountno = accountno;
 	}
 
