@@ -10,6 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author eelangov
+ *
+ */
+
 @Table
 @Entity
 public class Bankaccount {
@@ -23,11 +29,21 @@ public class Bankaccount {
 	protected int customer_id;
 	@Column
 	protected double balance;
+	
+	protected double amount;
 
 	public Bankaccount() {
 
 	}
 
+	/**
+	 * 
+	 * @param accountno
+	 * @param ifsccode
+	 * @param bankname
+	 * @param customer_id
+	 * @param balance
+	 */
 	public Bankaccount(BigInteger accountno, String ifsccode, String bankname, int customer_id, double balance) {
 		super();
 		this.accountno = accountno;
@@ -35,6 +51,14 @@ public class Bankaccount {
 		this.bankname = bankname;
 		this.customer_id = customer_id;
 		this.balance = balance;
+	}
+	
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 	public BigInteger getAccountno() {
@@ -82,8 +106,5 @@ public class Bankaccount {
 		return "Bankaccount [accountno=" + accountno + ", ifsccode=" + ifsccode + ", bankname=" + bankname
 				+ ", customer_id=" + customer_id + ", balance=" + balance + "]";
 	}
-
-	
-
 
 }

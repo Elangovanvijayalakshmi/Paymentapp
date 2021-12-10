@@ -34,22 +34,7 @@ public class BillPaymentController {
 	public Billpayment getbyid(@PathVariable("id") int id) {
 		return billpaymentservice.getbyid(id);
 	}
+
 	
-	/*
-	 * @GetMapping("/getAll") public List<Book> getAll() { return bservice.getAll();
-	 * }
-	 * 
-	 * @GetMapping("/getB/{id}") public Book getBook(@PathVariable("id") int bid) {
-	 * return bservice.getBook(bid);
-	 * 
-	 * }
-	 * 
-	 * @GetMapping("/getByBname/{nm}") public List<Book>
-	 * getByBname(@PathVariable("nm") String name) { System.out.println(name);
-	 * return bservice.getByBname(name); }
-	 * 
-	 * @PostMapping("/updateB") public Book updateBook(@RequestBody Book b) { return
-	 * bservice.updateBook(b); // return bservice.getAll(); }
-	 */
 
 }

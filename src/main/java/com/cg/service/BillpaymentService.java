@@ -19,11 +19,14 @@ import com.cg.repository.CustomerRepo;
 public class BillpaymentService {
 	@Autowired
 	BillpaymentRepo billpaymentrepo;
-	
+
 	public Billpayment addBill(Billpayment b) {
+		// code for getting wallet object
+		// validation amount with wallet
+		// if true
 		b.setDdate(new Date());
 		return billpaymentrepo.save(b);
-		
+		// if
 	}
 
 	public List<Billpayment> getall() {

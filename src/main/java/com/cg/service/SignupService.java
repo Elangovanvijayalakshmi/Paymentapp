@@ -28,25 +28,24 @@ public class SignupService {
 	@Autowired
 	private BankAccountService baccountservice;
 
-
 	public ResponseEntity<String> addUserProfile(Userprofile up) {
 		Customer validate = getUserprofile(up);
-		if(validate == null) {
-			Wallet w = walletservice.addWallet(new Wallet(0,0));
-			Customer cu = customerservice.addCustomer(new Customer(0,up.getName(),up.getMobile(),w.getWalletid(),up.getPassword()));
-			Bankaccount ba = baccountservice.addBankAccount(new Bankaccount(up.getAccountno(),up.getIfsccode(),up.getBankName(),cu.getCustid(),up.getBalance()));
-	
-			return new ResponseEntity<String>("Userprofile created successfully",HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<String>("Mobile Number Already Exists.",HttpStatus.OK);
+		if (validate == null) {
+			Wallet w = walletservice.addWallet(new Wallet(0, 0));
+			Customer cu = customerservice
+					.addCustomer(new Customer(0, up.getName(), up.getMobile(), w.getWalletid(), up.getPassword()));
+			Bankaccount ba = baccountservice.addBankAccount(new Bankaccount(up.getAccountno(), up.getIfsccode(),
+					up.getBankName(), cu.getCustid(), up.getBalance()));
+
+			return new ResponseEntity<String>("Userprofile created successfully", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>("Mobile Number Already Exists.", HttpStatus.OK);
 		}
 	}
 
-
 	public Customer getUserprofile(Userprofile up) {
-		System.out.println("sigin services called with "+up.getMobile()+" "+up.getPassword());
-		return customerservice.getbylogin(up.getMobile(),up.getPassword());
+		System.out.println("sigin services called with " + up.getMobile() + " " + up.getPassword());
+		return customerservice.getbylogin(up.getMobile(), up.getPassword());
 	}
 
 }

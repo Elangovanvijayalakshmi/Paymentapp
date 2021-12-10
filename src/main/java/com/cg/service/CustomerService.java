@@ -17,22 +17,23 @@ import com.cg.repository.CustomerRepo;
 public class CustomerService {
 	@Autowired
 	CustomerRepo customerrepo;
-	
+
 	public Customer addCustomer(Customer c) {
-		return 	customerrepo.save(c);
-		
+		return customerrepo.save(c);
+
 	}
+
 	public List<Customer> getall() {
 		return customerrepo.findAll();
-		
+
 	}
 
 	public Customer getbyid(int id) {
 		return customerrepo.findById(id).get();
 	}
-	
-	public Customer getbylogin(BigInteger mobile,String password) {
-		return customerrepo.findBymobile(mobile,password);
+
+	public Customer getbylogin(BigInteger mobile, String password) {
+		return customerrepo.findBymobile(mobile, password);
 	}
 
 }

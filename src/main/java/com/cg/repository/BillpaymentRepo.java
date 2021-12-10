@@ -15,5 +15,4 @@ import com.cg.entity.Wallet;
 @Repository
 public interface BillpaymentRepo extends JpaRepository<Billpayment, Integer> {
 
-
 }

@@ -35,21 +35,27 @@ public class BankAccountController {
 		return baccountservice.getbyid(id);
 	}
 
+	@GetMapping("/getbalance/")
+	public Bankaccount getbalance(@RequestBody Bankaccount b) {
+		return baccountservice.viewbalance(b.getCustomer_id(), b.getAccountno());
+	}
+
+	@PostMapping("/updatebalance")
+	public List<Bankaccount> updatebalance(@RequestBody Bankaccount b) {
+		return baccountservice.updatebalance(b.getBalance(), b.getAccountno());
+	}
+
+	@PostMapping("/deletebankaccount/{id}")
+	public ResponseEntity<String> deletebankaccount(@PathVariable("id") int id) {
+		return baccountservice.deletebankaccount(id);
+	}
+	
 	/*
-	 * @GetMapping("/getAll") public List<Book> getAll() { return bservice.getAll();
-	 * }
-	 * 
-	 * @GetMapping("/getB/{id}") public Book getBook(@PathVariable("id") int bid) {
-	 * return bservice.getBook(bid);
-	 * 
-	 * }
-	 * 
-	 * @GetMapping("/getByBname/{nm}") public List<Book>
-	 * getByBname(@PathVariable("nm") String name) { System.out.println(name);
-	 * return bservice.getByBname(name); }
-	 * 
-	 * @PostMapping("/updateB") public Book updateBook(@RequestBody Book b) { return
-	 * bservice.updateBook(b); // return bservice.getAll(); }
+	 * @PostMapping("/addmoneytowallet") public ResponseEntity<String>
+	 * addMoneytoWallet(@RequestBody Bankaccount b){ return
+	 * baccountservice.addmoneytowallet(b); }
 	 */
+
+	
 
 }

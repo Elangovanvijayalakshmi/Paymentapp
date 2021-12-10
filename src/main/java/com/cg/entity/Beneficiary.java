@@ -10,30 +10,44 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
+
+/**
+ * 
+ * @author eelangov
+ *
+ */
 @Table
 @Entity
 public class Beneficiary {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_beneficiary")
-	@SequenceGenerator(name="seq_beneficiary", sequenceName="seq_beneficiary", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_beneficiary")
+	@SequenceGenerator(name = "seq_beneficiary", sequenceName = "seq_beneficiary", allocationSize = 1)
 	protected int bid;
-	
-	
 
 	@Column
 	protected String name;
 	@Column
 	protected BigInteger mobilenumber;
-	@Column 
+	@Column
 	protected int custid;
-	@Column 
+	@Column
 	protected BigInteger accountno;
-	
+
+	// protected double amount;
 
 	public Beneficiary() {
 
 	}
 
+	/**
+	 * 
+	 * @param bid
+	 * @param name
+	 * @param mobilenumber
+	 * @param custid
+	 * @param accountno
+	 */
 
 	public Beneficiary(int bid, String name, BigInteger mobilenumber, int custid, BigInteger accountno) {
 		super();
@@ -44,68 +58,57 @@ public class Beneficiary {
 		this.accountno = accountno;
 	}
 
+	/*
+	 * public double getAmount() { return amount; }
+	 * 
+	 * 
+	 * public void setAmount(double amount) { this.amount = amount; }
+	 */
 
 	public BigInteger getAccountno() {
 		return accountno;
 	}
 
-
 	public void setAccountno(BigInteger accountno) {
 		this.accountno = accountno;
 	}
-
 
 	public int getBid() {
 		return bid;
 	}
 
-
 	public void setBid(int bid) {
 		this.bid = bid;
 	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public BigInteger getMobilenumber() {
 		return mobilenumber;
 	}
 
-
 	public void setMobilenumber(BigInteger mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
-
 
 	public int getCustid() {
 		return custid;
 	}
 
-
 	public void setCustid(int custid) {
 		this.custid = custid;
 	}
-
 
 	@Override
 	public String toString() {
 		return "Beneficiary [bid=" + bid + ", name=" + name + ", mobilenumber=" + mobilenumber + ", custid=" + custid
 				+ ", accountno=" + accountno + "]";
 	}
-
-
-	
-
-
-	
-	
 
 }

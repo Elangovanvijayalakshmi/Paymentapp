@@ -14,10 +14,9 @@ import javax.persistence.Table;
 @Entity
 public class Billpayment {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_beneficiary")
-	@SequenceGenerator(name="seq_billpayment", sequenceName="seq_billpayment", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_beneficiary")
+	@SequenceGenerator(name = "seq_billpayment", sequenceName = "seq_billpayment", allocationSize = 1)
 	protected int bill_id;
-	
 
 	@Column
 	protected String btype;
@@ -86,7 +85,5 @@ public class Billpayment {
 		return "Billpayment [bill_id=" + bill_id + ", btype=" + btype + ", customer_id=" + customer_id + ", ddate="
 				+ ddate + ", amount=" + amount + "]";
 	}
-
-	
 
 }

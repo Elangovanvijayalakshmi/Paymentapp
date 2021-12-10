@@ -14,11 +14,10 @@ import javax.persistence.Table;
 @Entity
 public class Customer {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_customer")
-	@SequenceGenerator(name="seq_customer", sequenceName="seq_customer", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_customer")
+	@SequenceGenerator(name = "seq_customer", sequenceName = "seq_customer", allocationSize = 1)
 	protected int custid;
-	
-	
+
 	@Column
 	protected String name;
 	@Column
@@ -27,14 +26,10 @@ public class Customer {
 	protected int wallet_id;
 	@Column
 	protected String password;
-	
-	
 
 	public Customer() {
 
 	}
-
-
 
 	public Customer(int custid, String name, BigInteger mobile, int wallet_id, String password) {
 		super();
@@ -45,80 +40,50 @@ public class Customer {
 		this.password = password;
 	}
 
-
-
 	public int getCustid() {
 		return custid;
 	}
-
-
 
 	public void setCustid(int custid) {
 		this.custid = custid;
 	}
 
-
-
 	public String getName() {
 		return name;
 	}
-
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-
 	public BigInteger getMobile() {
 		return mobile;
 	}
-
-
 
 	public void setMobile(BigInteger mobile) {
 		this.mobile = mobile;
 	}
 
-
-
 	public int getWallet_id() {
 		return wallet_id;
 	}
-
-
 
 	public void setWallet_id(int wallet_id) {
 		this.wallet_id = wallet_id;
 	}
 
-
-
 	public String getPassword() {
 		return password;
 	}
 
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 	@Override
 	public String toString() {
 		return "Customer [custid=" + custid + ", name=" + name + ", mobile=" + mobile + ", wallet_id=" + wallet_id
 				+ ", password=" + password + "]";
 	}
-
-
-
-	
-
-
-	
-	
 
 }

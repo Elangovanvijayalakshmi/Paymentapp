@@ -35,17 +35,15 @@ public class BeneficiaryController {
 	@Autowired
 	private BeneficiaryService beneService;
 
-	@PostMapping(value="/add_beneficiary",produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/add_beneficiary", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Beneficiary> addBeneficiary(@RequestBody Beneficiary bene) throws JSONException {
-		
-		if(beneService.isBeneficiaryExists(bene.getName(),bene.getMobilenumber(),bene.getAccountno()) <=0) {
+
+		if (beneService.isBeneficiaryExists(bene.getName(), bene.getMobilenumber(), bene.getAccountno()) <= 0) {
 			return null;
-		}
-		else {
-			if(beneService.isBenificiaryLinked(bene.getCustid(),bene.getAccountno()) <=0) {
+		} else {
+			if (beneService.isBenificiaryLinked(bene.getCustid(), bene.getAccountno()) <= 0) {
 				return beneService.addBeneficiary(bene);
-			}
-			else {
+			} else {
 				return beneService.getbycustomerid(bene.getCustid());
 			}
 		}
@@ -56,26 +54,16 @@ public class BeneficiaryController {
 		return beneService.getall();
 	}
 
-	@GetMapping("/getbyid/{id}")
-	public Beneficiary getbyid(@PathVariable("id") int id) {
-		return beneService.getbyid(id);
+	@GetMapping("/getbycustomerid/{id}") // end point
+	public List<Beneficiary> getbycustomerid(@PathVariable("id") int id) {
+		return beneService.getbycustomerid(id);
 	}
 
-	/*
-	 * @GetMapping("/getAll") public List<Book> getAll() { return bservice.getAll();
-	 * }
-	 * 
-	 * @GetMapping("/getB/{id}") public Book getBook(@PathVariable("id") int bid) {
-	 * return bservice.getBook(bid);
-	 * 
-	 * }
-	 * 
-	 * @GetMapping("/getByBname/{nm}") public List<Book>
-	 * getByBname(@PathVariable("nm") String name) { System.out.println(name);
-	 * return bservice.getByBname(name); }
-	 * 
-	 * @PostMapping("/updateB") public Book updateBook(@RequestBody Book b) { return
-	 * bservice.updateBook(b); // return bservice.getAll(); }
-	 */
+	@PostMapping("/deleteBeneficiary/{id}")
+	public ResponseEntity<String> deletebeneficiary(@PathVariable("id") int id) {
+		return beneService.deletebeneficiary(id);
+	}
+
+	
 
 }
