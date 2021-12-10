@@ -16,7 +16,7 @@ import com.cg.entity.Userprofile;
 import com.cg.service.SignupService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/app/")
 public class SignUpController {
 
