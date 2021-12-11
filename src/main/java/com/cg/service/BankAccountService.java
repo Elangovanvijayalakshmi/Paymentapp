@@ -4,6 +4,10 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.Column;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,13 +42,13 @@ public class BankAccountService {
 		return baRepo.findById(id).get();
 	}
 
-	public Bankaccount viewbalance(int cu_id, BigInteger acc_no) {
+	public double viewbalance(int cu_id, BigInteger acc_no) {
 		return baRepo.viewBalance(cu_id, acc_no);
 	}
 
-	public List<Bankaccount> updatebalance(double bal, BigInteger acc_no) {
-		baRepo.updatebalance(bal, acc_no);
-		return baRepo.findAll();
+	public List<Bankaccount> updatebalance(double bal, BigInteger acc_no, int custid) {
+		baRepo.updatebalance(bal, acc_no, custid);
+		return baRepo.getAccountByCustId(custid);
 	}
 
 	public ResponseEntity<String> deletebankaccount(int custid) {
@@ -53,14 +57,30 @@ public class BankAccountService {
 
 	}
 
-	/*
-	 * public ResponseEntity<String> addmoneytowallet(Bankaccount b) { double
-	 * bal=b.getBalance(); double amount=b.getAmount(); int
-	 * cust_id=b.getCustomer_id();
-	 * 
-	 * if(bal<=amount) { baRepo.addmoneytowallet(b); wRepo.addmoneytowallet(b);
-	 * 
-	 * } return null; }
-	 */
+	public ResponseEntity<String> addmoneytowallet(Bankaccount b) throws JSONException {
+		
+		BigInteger acc_no=	b.getAccountno();
+		int cust_id=b.getCustomer_id();
+		int wallet_id=wRepo.getWalletidfromcustid(cust_id);
+		double amount=b.getBalance();
+		double balance = baRepo.viewBalance(cust_id, acc_no);
+		
+		
+		if(amount <= balance) {
+			baRepo.withdrawmoney(amount,acc_no,cust_id);
+			wRepo.addmoneytowallet(wallet_id,amount);		
+		}
+		else {
+			return new ResponseEntity<String>("Insufficient balance",HttpStatus.OK);
+		}
+		return new ResponseEntity<String>("Added money to the wallet",HttpStatus.OK);
+		
+		
+		
+	}
 
+	
 }
+	 
+
+

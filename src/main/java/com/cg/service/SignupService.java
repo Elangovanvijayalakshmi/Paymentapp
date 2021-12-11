@@ -29,7 +29,7 @@ public class SignupService {
 	private BankAccountService baccountservice;
 
 	public ResponseEntity<String> addUserProfile(Userprofile up) {
-		Customer validate = getUserprofile(up);
+		Customer validate = customerservice.findBymobile(up.getMobile());
 		if (validate == null) {
 			Wallet w = walletservice.addWallet(new Wallet(0, 0));
 			Customer cu = customerservice
@@ -37,15 +37,15 @@ public class SignupService {
 			Bankaccount ba = baccountservice.addBankAccount(new Bankaccount(up.getAccountno(), up.getIfsccode(),
 					up.getBankName(), cu.getCustid(), up.getBalance()));
 
-			return new ResponseEntity<String>("Userprofile created successfully", HttpStatus.OK);
+			return new ResponseEntity<String>(HttpStatus.OK);
 		} else {
-			return new ResponseEntity<String>("Mobile Number Already Exists.", HttpStatus.OK);
+			return new ResponseEntity<String>("Mobile Number Already Exists.", HttpStatus.PRECONDITION_FAILED);
 		}
 	}
 
 	public Customer getUserprofile(Userprofile up) {
 		System.out.println("sigin services called with " + up.getMobile() + " " + up.getPassword());
-		return customerservice.getbylogin(up.getMobile(), up.getPassword());
+		return customerservice.login(up.getMobile(), up.getPassword());
 	}
 
 }

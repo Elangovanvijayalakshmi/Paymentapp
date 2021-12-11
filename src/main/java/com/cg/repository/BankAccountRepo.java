@@ -17,15 +17,24 @@ import com.cg.entity.Wallet;
 public interface BankAccountRepo extends JpaRepository<Bankaccount, Integer> {
 
 	@Query(value = "select balance from bankaccount where customer_id=?1 and accountno=?2", nativeQuery = true)
-	Bankaccount viewBalance(int custid, BigInteger accountno);
+	double viewBalance(int custid, BigInteger accountno);
+	
+	@Query(value = "select * from bankaccount where customer_id=?1", nativeQuery = true)
+	List<Bankaccount> getAccountByCustId(int custid);
 
 	@Transactional
 	@Modifying
-	@Query(value = "update bankaccount set balance=?1 where accountno=?2 and customer_id=?3", nativeQuery = true)
-	void updatebalance(double bal, BigInteger acc_no);// 1 pqar
+	@Query(value = "update bankaccount set balance=(balance+?1) where accountno=?2 and customer_id=?3", nativeQuery = true)
+	void updatebalance(double bal, BigInteger acc_no, int custid);
 
 	@Query(value = "delete from bankaccount where customer_id=?1", nativeQuery = true)
 	void deletebankaccount(int custid);
+	
+	@Transactional
+	@Modifying
+	@Query(value="update bankaccount set balance=(balance-?1) where accountno=?2 and customer_id=?3",nativeQuery=true)
+	void withdrawmoney(double amount,BigInteger acc_no, int custid);
+		
 
 	/*
 	 * @Query(

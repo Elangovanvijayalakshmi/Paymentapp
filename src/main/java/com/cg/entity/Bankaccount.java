@@ -29,10 +29,8 @@ public class Bankaccount {
 	protected int customer_id;
 	@Column
 	protected double balance;
-//	
-//	protected double amount;
-
-	public Bankaccount() {
+	
+	Bankaccount() {
 
 	}
 
@@ -52,12 +50,8 @@ public class Bankaccount {
 		this.customer_id = customer_id;
 		this.balance = balance;
 	}
-	/*
-	 * public double getAmount() { return amount; }
-	 * 
-	 * public void setAmount(double amount) { this.amount = amount; }
-	 */
-
+	  
+	 
 	public BigInteger getAccountno() {
 		return accountno;
 	}

@@ -1,6 +1,10 @@
 package com.cg.controller;
 
 import java.util.List;
+import java.util.Map;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,26 +40,28 @@ public class BankAccountController {
 	}
 
 	@GetMapping("/getbalance/")
-	public Bankaccount getbalance(@RequestBody Bankaccount b) {
+	public double getbalance(@RequestBody Bankaccount b) {
 		return baccountservice.viewbalance(b.getCustomer_id(), b.getAccountno());
 	}
 
 	@PostMapping("/updatebalance")
 	public List<Bankaccount> updatebalance(@RequestBody Bankaccount b) {
-		return baccountservice.updatebalance(b.getBalance(), b.getAccountno());
+		return baccountservice.updatebalance(b.getBalance(), b.getAccountno(), b.getCustomer_id());
 	}
 
 	@PostMapping("/deletebankaccount/{id}")
 	public ResponseEntity<String> deletebankaccount(@PathVariable("id") int id) {
 		return baccountservice.deletebankaccount(id);
 	}
-	
-	/*
-	 * @PostMapping("/addmoneytowallet") public ResponseEntity<String>
-	 * addMoneytoWallet(@RequestBody Bankaccount b){ return
-	 * baccountservice.addmoneytowallet(b); }
-	 */
 
 	
+	  @PostMapping("/addmoneytowallet") 
+	  public ResponseEntity<String>	 addMoneytoWallet(@RequestBody Bankaccount b) throws JSONException{ 
+		  System.out.println(b.toString());
+		  return baccountservice.addmoneytowallet(b); 
+		  
+	  }
+	  
+	 
 
 }

@@ -19,6 +19,14 @@ public interface WalletRepo extends JpaRepository<Wallet, Integer> {
 	@Query(value = "select balance from wallet where walletid=?1", nativeQuery = true)
 	double getbalance(int cid);
 	
+	@Transactional
+	@Modifying
+	@Query(value="update wallet set balance=(balance+?2) where walletid=?1",nativeQuery=true)
+	void addmoneytowallet(int cid,double amount);
+
+	@Query(value="SELECT Wallet_id FROM CUSTOMER c WHERE c.CUSTID =?1",nativeQuery=true)
+	int getWalletidfromcustid(int cust_id);
+	
 	/*
 	 * @Query(value="update wallet set balance=balance+?1 where walletid=?2"
 	 * ,nativeQuery=true) void addmoneytowallet(double balance,int wallet_id);

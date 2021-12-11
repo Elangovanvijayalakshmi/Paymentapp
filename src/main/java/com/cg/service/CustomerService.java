@@ -32,8 +32,12 @@ public class CustomerService {
 		return customerrepo.findById(id).get();
 	}
 
-	public Customer getbylogin(BigInteger mobile, String password) {
-		return customerrepo.findBymobile(mobile, password);
+	public Customer login(BigInteger mobile, String password) {
+		return customerrepo.login(mobile, password);
+	}
+	
+	public Customer findBymobile(BigInteger mobile) {
+		return customerrepo.findBymobile(mobile);
 	}
 
 }
