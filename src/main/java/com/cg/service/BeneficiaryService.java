@@ -20,6 +20,12 @@ public class BeneficiaryService {
 	@Autowired
 	private WalletRepo walletrepo;
 
+	/**
+	 * 
+	 * @param bene
+	 * @return
+	 */
+
 	public List<Beneficiary> addBeneficiary(Beneficiary bene) {
 		// TODO Auto-generated method stub
 		benerepo.save(bene);
@@ -27,35 +33,72 @@ public class BeneficiaryService {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	public List<Beneficiary> getall() {
 		// TODO Auto-generated method stub
 		return benerepo.findAll();
 
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	public Beneficiary getbyid(int id) {
 		// TODO Auto-generated method stub
 		return benerepo.findById(id).get();
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @param mobile
+	 * @param accno
+	 * @return
+	 */
+
 	public int isBeneficiaryExists(String name, BigInteger mobile, BigInteger accno) {
 		return benerepo.isBeneficiaryExists(name, mobile, accno);
 	}
 
+	/**
+	 * 
+	 * @param custid
+	 * @param accno
+	 * @return
+	 */
+
 	public int isBenificiaryLinked(int custid, BigInteger accno) {
 		return benerepo.isBenificiaryLinked(custid, accno);
 	}
+
+	/**
+	 * 
+	 * @param custid
+	 * @return
+	 */
 
 	public List<Beneficiary> getbycustomerid(int custid) {
 		// TODO Auto-generated method stub
 		return benerepo.getbycustomerid(custid);
 	}
 
+	/**
+	 * 
+	 * @param bid
+	 * @return
+	 */
+
 	public ResponseEntity<String> deletebeneficiary(int bid) {
 		benerepo.deleteBeneficiary(bid);
 
 		return new ResponseEntity<String>("Beneficiary deleted successfully", HttpStatus.OK);
 	}
-	
 
 }

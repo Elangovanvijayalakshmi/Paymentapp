@@ -30,20 +30,35 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerservice;
 
+	/**
+	 * 
+	 * @param cust
+	 * @return
+	 */
 	@PostMapping("/add_customer")
 	public Customer addCustomer(@RequestBody Customer cust) {
 		return customerservice.addCustomer(cust);
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	@GetMapping("/getall")
 	public List<Customer> getAll() {
 		return customerservice.getall();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	@GetMapping("/getbyid/{id}")
 	public Customer getbyid(@PathVariable("id") int id) {
 		return customerservice.getbyid(id);
 	}
-
 
 }

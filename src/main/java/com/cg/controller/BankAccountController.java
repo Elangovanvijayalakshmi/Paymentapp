@@ -24,44 +24,84 @@ public class BankAccountController {
 	@Autowired
 	private BankAccountService baccountservice;
 
+	/**
+	 * 
+	 * @param ba
+	 * @return
+	 */
+
 	@PostMapping("/add")
 	public Bankaccount addBankAccount(@RequestBody Bankaccount ba) {
 		return baccountservice.addBankAccount(ba);
+
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	@GetMapping("/getall")
 	public List<Bankaccount> getAll() {
 		return baccountservice.getall();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	@GetMapping("/getbyid/{id}")
 	public Bankaccount getbyid(@PathVariable("id") int id) {
 		return baccountservice.getbyid(id);
 	}
+
+	/**
+	 * 
+	 * @param b
+	 * @return
+	 */
 
 	@GetMapping("/getbalance/")
 	public double getbalance(@RequestBody Bankaccount b) {
 		return baccountservice.viewbalance(b.getCustomer_id(), b.getAccountno());
 	}
 
+	/**
+	 * 
+	 * @param b
+	 * @return
+	 */
+
 	@PostMapping("/updatebalance")
 	public List<Bankaccount> updatebalance(@RequestBody Bankaccount b) {
 		return baccountservice.updatebalance(b.getBalance(), b.getAccountno(), b.getCustomer_id());
 	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 
 	@PostMapping("/deletebankaccount/{id}")
 	public ResponseEntity<String> deletebankaccount(@PathVariable("id") int id) {
 		return baccountservice.deletebankaccount(id);
 	}
 
-	
-	  @PostMapping("/addmoneytowallet") 
-	  public ResponseEntity<String>	 addMoneytoWallet(@RequestBody Bankaccount b) throws JSONException{ 
-		  System.out.println(b.toString());
-		  return baccountservice.addmoneytowallet(b); 
-		  
-	  }
-	  
-	 
+	/**
+	 * 
+	 * @param b
+	 * @return
+	 * @throws JSONException
+	 */
+
+	@PostMapping("/addmoneytowallet")
+	public ResponseEntity<String> addMoneytoWallet(@RequestBody Bankaccount b) throws JSONException {
+		System.out.println(b.toString());
+		return baccountservice.addmoneytowallet(b);
+
+	}
 
 }

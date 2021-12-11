@@ -17,10 +17,20 @@ public class WalletService {
 	@Autowired
 	private WalletRepo wRepo;
 
+	/**
+	 * 
+	 * @param w
+	 * @return
+	 */
 	public Wallet addWallet(Wallet w) {
 		return wRepo.save(w);
 
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	public List<Wallet> getall() {
 		// TODO Auto-generated method stub
@@ -28,15 +38,27 @@ public class WalletService {
 
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	public Wallet getbyid(int id) {
 		// TODO Auto-generated method stub
 		return wRepo.findById(id).get();
 	}
 
+	/**
+	 * 
+	 * @param bal
+	 * @param walletid
+	 * @return
+	 */
+
 	public Wallet updateBalance(double bal, int walletid) {
 		wRepo.updatebalance(bal, walletid);
 		return wRepo.findById(walletid).get();
 	}
-
 
 }

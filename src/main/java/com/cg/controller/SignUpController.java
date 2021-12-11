@@ -23,11 +23,22 @@ public class SignUpController {
 	@Autowired
 	private SignupService signupservice;
 
+	/**
+	 * 
+	 * @param up
+	 * @return
+	 */
 	@PostMapping("/signin")
 	public Customer getUserprofile(@RequestBody Userprofile up) {
 		System.out.println("Sign in controller called");
 		return signupservice.getUserprofile(up);
 	}
+
+	/**
+	 * 
+	 * @param up
+	 * @return
+	 */
 
 	@PostMapping("/signup")
 	public ResponseEntity<String> addUserProfile(@RequestBody Userprofile up) {

@@ -34,7 +34,7 @@ public class Beneficiary {
 	@Column
 	protected BigInteger accountno;
 
-	// protected double amount;
+	protected double amount;
 
 	public Beneficiary() {
 
@@ -58,48 +58,100 @@ public class Beneficiary {
 		this.accountno = accountno;
 	}
 
-	/*
-	 * public double getAmount() { return amount; }
+	/**
 	 * 
+	 * @return
+	 */
+
+	public double getAmount() {
+		return amount;
+	}
+
+	/**
 	 * 
-	 * public void setAmount(double amount) { this.amount = amount; }
+	 * @param amount
+	 */
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * 
+	 * @return
 	 */
 
 	public BigInteger getAccountno() {
 		return accountno;
 	}
+	/**
+	 * 
+	 * @param accountno
+	 */
 
 	public void setAccountno(BigInteger accountno) {
 		this.accountno = accountno;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public int getBid() {
 		return bid;
 	}
+	/**
+	 * 
+	 * @param bid
+	 */
 
 	public void setBid(int bid) {
 		this.bid = bid;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public String getName() {
 		return name;
 	}
+	/**
+	 * 
+	 * @param name
+	 */
 
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public BigInteger getMobilenumber() {
 		return mobilenumber;
 	}
+	/**
+	 * 
+	 * @param mobilenumber
+	 */
 
 	public void setMobilenumber(BigInteger mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public int getCustid() {
 		return custid;
 	}
+	/**
+	 * 
+	 * @param custid
+	 */
 
 	public void setCustid(int custid) {
 		this.custid = custid;

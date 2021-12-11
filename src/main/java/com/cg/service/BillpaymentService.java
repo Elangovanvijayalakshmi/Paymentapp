@@ -20,19 +20,34 @@ public class BillpaymentService {
 	@Autowired
 	BillpaymentRepo billpaymentrepo;
 
+	/**
+	 * 
+	 * @param b
+	 * @return
+	 */
+
 	public Billpayment addBill(Billpayment b) {
-		// code for getting wallet object
-		// validation amount with wallet
-		// if true
+
 		b.setDdate(new Date());
 		return billpaymentrepo.save(b);
-		// if
+
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	public List<Billpayment> getall() {
 		// TODO Auto-generated method stub
 		return billpaymentrepo.findAll();
 	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 
 	public Billpayment getbyid(int id) {
 		// TODO Auto-generated method stub

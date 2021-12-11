@@ -31,21 +31,43 @@ public class WalletController {
 	@Autowired
 	private WalletService wservice;
 
+	/**
+	 * 
+	 * @param w
+	 * @return
+	 */
 	@PostMapping("/addw")
 	public Wallet addWallet(@RequestBody Wallet w) {
 		return wservice.addWallet(w);
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	@GetMapping("/getall")
 	public List<Wallet> getAll() {
 		return wservice.getall();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	@GetMapping("/getbyid/{id}")
 	public Wallet getbyid(@PathVariable("id") int id) {
 		return wservice.getbyid(id);
 	}
+
+	/**
+	 * 
+	 * @param w
+	 * @return
+	 */
 
 	@PostMapping("/updatebal")
 	public Wallet updatebal(@RequestBody Wallet w) {

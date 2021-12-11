@@ -23,23 +23,47 @@ public class Wallet {
 
 	}
 
+	/**
+	 * 
+	 * @param walletid
+	 * @param balance
+	 */
 	public Wallet(int walletid, double balance) {
 		super();
 		this.walletid = walletid;
 		this.balance = balance;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getWalletid() {
 		return walletid;
 	}
+
+	/**
+	 * 
+	 * @param walletid
+	 */
 
 	public void setWalletid(int walletid) {
 		this.walletid = walletid;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	public double getBalance() {
 		return balance;
 	}
+
+	/**
+	 * 
+	 * @param balance
+	 */
 
 	public void setBalance(double balance) {
 		this.balance = balance;

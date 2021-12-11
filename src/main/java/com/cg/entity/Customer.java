@@ -10,6 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
+/**
+ * 
+ * @author eelangov
+ *
+ */
+
+
 @Table
 @Entity
 public class Customer {
@@ -30,6 +38,14 @@ public class Customer {
 	public Customer() {
 
 	}
+	/**
+	 * 
+	 * @param custid
+	 * @param name
+	 * @param mobile
+	 * @param wallet_id
+	 * @param password
+	 */
 
 	public Customer(int custid, String name, BigInteger mobile, int wallet_id, String password) {
 		super();
@@ -39,46 +55,82 @@ public class Customer {
 		this.wallet_id = wallet_id;
 		this.password = password;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public int getCustid() {
 		return custid;
 	}
-
+	/**
+	 * 
+	 * @param custid
+	 */
 	public void setCustid(int custid) {
 		this.custid = custid;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public String getName() {
 		return name;
 	}
+	/**
+	 * 
+	 * @param name
+	 */
 
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public BigInteger getMobile() {
 		return mobile;
 	}
+	/**
+	 * 
+	 * @param mobile
+	 */
 
 	public void setMobile(BigInteger mobile) {
 		this.mobile = mobile;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public int getWallet_id() {
 		return wallet_id;
 	}
+	/**
+	 * 
+	 * @param wallet_id
+	 */
 
 	public void setWallet_id(int wallet_id) {
 		this.wallet_id = wallet_id;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getPassword() {
 		return password;
 	}
-
+	/**
+	 * 
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 
 	@Override
 	public String toString() {

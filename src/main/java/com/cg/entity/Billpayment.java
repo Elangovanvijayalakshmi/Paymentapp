@@ -31,6 +31,15 @@ public class Billpayment {
 
 	}
 
+	/**
+	 * 
+	 * @param bill_id
+	 * @param btype
+	 * @param customer_id
+	 * @param ddate
+	 * @param amount
+	 */
+
 	public Billpayment(int bill_id, String btype, int customer_id, Date ddate, double amount) {
 		super();
 		this.bill_id = bill_id;
@@ -40,41 +49,91 @@ public class Billpayment {
 		this.amount = amount;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	public int getBill_id() {
 		return bill_id;
 	}
+
+	/**
+	 * 
+	 * @param bill_id
+	 */
 
 	public void setBill_id(int bill_id) {
 		this.bill_id = bill_id;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	public String getBtype() {
 		return btype;
 	}
+
+	/**
+	 * 
+	 * @param btype
+	 */
 
 	public void setBtype(String btype) {
 		this.btype = btype;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	public int getCustomer_id() {
 		return customer_id;
 	}
+
+	/**
+	 * 
+	 * @param customer_id
+	 */
 
 	public void setCustomer_id(int customer_id) {
 		this.customer_id = customer_id;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	public Date getDdate() {
 		return ddate;
 	}
+
+	/**
+	 * 
+	 * @param ddate
+	 */
 
 	public void setDdate(Date ddate) {
 		this.ddate = ddate;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	public double getAmount() {
 		return amount;
 	}
+
+	/**
+	 * 
+	 * @param amount
+	 */
 
 	public void setAmount(double amount) {
 		this.amount = amount;

@@ -18,24 +18,54 @@ public class CustomerService {
 	@Autowired
 	CustomerRepo customerrepo;
 
+	/**
+	 * 
+	 * @param c
+	 * @return
+	 */
+
 	public Customer addCustomer(Customer c) {
 		return customerrepo.save(c);
 
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	public List<Customer> getall() {
 		return customerrepo.findAll();
 
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	public Customer getbyid(int id) {
 		return customerrepo.findById(id).get();
 	}
 
+	/**
+	 * 
+	 * @param mobile
+	 * @param password
+	 * @return
+	 */
+
 	public Customer login(BigInteger mobile, String password) {
 		return customerrepo.login(mobile, password);
 	}
-	
+
+	/**
+	 * 
+	 * @param mobile
+	 * @return
+	 */
+
 	public Customer findBymobile(BigInteger mobile) {
 		return customerrepo.findBymobile(mobile);
 	}

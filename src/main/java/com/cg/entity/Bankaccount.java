@@ -51,46 +51,85 @@ public class Bankaccount {
 		this.balance = balance;
 	}
 	  
-	 
+	 /**
+	  * 
+	  * @return
+	  */
 	public BigInteger getAccountno() {
 		return accountno;
 	}
-
+	 /**
+	  * 
+	  * @param accountno
+	  */
 	public void setAccountno(BigInteger accountno) {
 		this.accountno = accountno;
 	}
+	/**
+	 * 
+	 * @return
+	 */
+	
 
 	public String getIfsccode() {
 		return ifsccode;
 	}
-
+	/**
+	 * 
+	 * @param ifsccode
+	 */
 	public void setIfsccode(String ifsccode) {
 		this.ifsccode = ifsccode;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getBankname() {
 		return bankname;
 	}
 
+	/**
+	 * 
+	 * @param bankname
+	 */
 	public void setBankname(String bankname) {
 		this.bankname = bankname;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public int getCustomer_id() {
 		return customer_id;
 	}
+	/**
+	 * 
+	 * @param customer_id
+	 */
 
 	public void setCustomer_id(int customer_id) {
 		this.customer_id = customer_id;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public double getBalance() {
 		return balance;
 	}
+	/**
+	 * 
+	 * @param balance
+	 */
 
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+	
 
 	@Override
 	public String toString() {

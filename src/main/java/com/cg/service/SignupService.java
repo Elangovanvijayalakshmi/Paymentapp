@@ -28,6 +28,12 @@ public class SignupService {
 	@Autowired
 	private BankAccountService baccountservice;
 
+	/**
+	 * 
+	 * @param up
+	 * @return
+	 */
+
 	public ResponseEntity<String> addUserProfile(Userprofile up) {
 		Customer validate = customerservice.findBymobile(up.getMobile());
 		if (validate == null) {
@@ -42,6 +48,12 @@ public class SignupService {
 			return new ResponseEntity<String>("Mobile Number Already Exists.", HttpStatus.PRECONDITION_FAILED);
 		}
 	}
+
+	/**
+	 * 
+	 * @param up
+	 * @return
+	 */
 
 	public Customer getUserprofile(Userprofile up) {
 		System.out.println("sigin services called with " + up.getMobile() + " " + up.getPassword());

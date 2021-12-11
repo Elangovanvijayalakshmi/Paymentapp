@@ -20,22 +20,35 @@ public class BillPaymentController {
 	@Autowired
 	private BillpaymentService billpaymentservice;
 
+	/**
+	 * 
+	 * @param bill
+	 * @return
+	 */
 	@PostMapping("/add_billpayment")
 	public Billpayment addBill(@RequestBody Billpayment bill) {
 		return billpaymentservice.addBill(bill);
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	@GetMapping("/getall")
 	public List<Billpayment> getAll() {
 		return billpaymentservice.getall();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	@GetMapping("/getbyid/{id}")
 	public Billpayment getbyid(@PathVariable("id") int id) {
 		return billpaymentservice.getbyid(id);
 	}
-	
-
-	
 
 }

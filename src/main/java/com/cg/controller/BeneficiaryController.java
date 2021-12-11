@@ -35,6 +35,12 @@ public class BeneficiaryController {
 	@Autowired
 	private BeneficiaryService beneService;
 
+	/**
+	 * 
+	 * @param bene
+	 * @return
+	 * @throws JSONException
+	 */
 	@PostMapping(value = "/add_beneficiary", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Beneficiary> addBeneficiary(@RequestBody Beneficiary bene) throws JSONException {
 
@@ -49,21 +55,36 @@ public class BeneficiaryController {
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
 	@GetMapping("/getall")
 	public List<Beneficiary> getAll() {
 		return beneService.getall();
 	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 
 	@GetMapping("/getbycustomerid/{id}") // end point
 	public List<Beneficiary> getbycustomerid(@PathVariable("id") int id) {
 		return beneService.getbycustomerid(id);
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	@PostMapping("/deleteBeneficiary/{id}")
 	public ResponseEntity<String> deletebeneficiary(@PathVariable("id") int id) {
 		return beneService.deletebeneficiary(id);
 	}
-
-	
 
 }
