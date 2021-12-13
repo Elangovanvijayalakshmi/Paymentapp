@@ -1,6 +1,8 @@
 package com.cg.service;
 
 import java.math.BigInteger;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.entity.Bankaccount;
 import com.cg.entity.Billpayment;
+import com.cg.entity.Transaction;
 import com.cg.repository.BankAccountRepo;
 import com.cg.repository.WalletRepo;
 
@@ -25,6 +28,8 @@ public class BankAccountService {
 	private BankAccountRepo baRepo;
 	@Autowired
 	private WalletRepo wRepo;
+	@Autowired
+	private TransactionService transactionservice;
 
 	/**
 	 * 
@@ -78,7 +83,7 @@ public class BankAccountService {
 	 */
 
 	public List<Bankaccount> updatebalance(double bal, BigInteger acc_no, int custid) {
-		baRepo.updatebalance(bal, acc_no, custid);
+		baRepo.updatebalance(bal, acc_no);
 		return baRepo.getAccountByCustId(custid);
 	}
 
@@ -108,10 +113,15 @@ public class BankAccountService {
 		int wallet_id = wRepo.getWalletidfromcustid(cust_id);
 		double amount = b.getBalance();
 		double balance = baRepo.viewBalance(cust_id, acc_no);
+		String type="Wallet deposit";
+		LocalDate date=LocalDate.now();
+		String description="Transfer money to wallet from bankaccount";
 
 		if (amount <= balance) {
 			baRepo.withdrawmoney(amount, acc_no, cust_id);
 			wRepo.addmoneytowallet(wallet_id, amount);
+		Transaction t=transactionservice.addTransaction(new Transaction(0,type,date,wallet_id,amount,description));
+			
 		} else {
 			return new ResponseEntity<String>("Insufficient balance", HttpStatus.OK);
 		}

@@ -34,7 +34,7 @@ public class Beneficiary {
 	@Column
 	protected BigInteger accountno;
 
-	protected double amount;
+
 
 	public Beneficiary() {
 
@@ -58,23 +58,7 @@ public class Beneficiary {
 		this.accountno = accountno;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-
-	public double getAmount() {
-		return amount;
-	}
-
-	/**
-	 * 
-	 * @param amount
-	 */
-
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
+	
 
 	/**
 	 * 

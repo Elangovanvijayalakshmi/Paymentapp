@@ -32,7 +32,7 @@ public interface BankAccountRepo extends JpaRepository<Bankaccount, Integer> {
 	 * @return
 	 */
 
-	@Query(value = "select * from bankaccount where customer_id=?1", nativeQuery = true)
+	@Query(value = "select * from bankaccount where customer_id=?1 ", nativeQuery = true)
 	List<Bankaccount> getAccountByCustId(int custid);
 
 	/**
@@ -44,8 +44,8 @@ public interface BankAccountRepo extends JpaRepository<Bankaccount, Integer> {
 
 	@Transactional
 	@Modifying
-	@Query(value = "update bankaccount set balance=(balance+?1) where accountno=?2 and customer_id=?3", nativeQuery = true)
-	void updatebalance(double bal, BigInteger acc_no, int custid);
+	@Query(value = "update bankaccount set balance=(balance+?1) where accountno=?2", nativeQuery = true)
+	void updatebalance(double bal, BigInteger acc_no);
 
 	/**
 	 * 
@@ -66,5 +66,8 @@ public interface BankAccountRepo extends JpaRepository<Bankaccount, Integer> {
 	@Modifying
 	@Query(value = "update bankaccount set balance=(balance-?1) where accountno=?2 and customer_id=?3", nativeQuery = true)
 	void withdrawmoney(double amount, BigInteger acc_no, int custid);
+
+	@Query(value="select count(*) from bankaccount where accountno=?1 fetch next 1 row only",nativeQuery=true)
+	int getcustomerid(BigInteger accountno);
 
 }

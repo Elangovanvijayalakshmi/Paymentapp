@@ -61,4 +61,11 @@ public class WalletService {
 		return wRepo.findById(walletid).get();
 	}
 
+	public double showbalance(int walletid) {
+		// TODO Auto-generated method stub
+		return wRepo.getbalance(walletid);
+	}
+	
+	
+
 }

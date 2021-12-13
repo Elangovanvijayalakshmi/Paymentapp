@@ -57,4 +57,10 @@ public interface BeneficiaryRepo extends JpaRepository<Beneficiary, Integer> {
 	@Query(value = "delete from beneficiary b where b.bid=?1 ", nativeQuery = true)
 	void deleteBeneficiary(int bid);
 
+	
+	@Transactional
+	@Modifying
+	@Query(value="update bankaccount set balance=balance+?1 where accountno=?2", nativeQuery=true)
+	void updatebeneficiary(double amount,BigInteger acc_no);
+	
 }

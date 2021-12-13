@@ -86,5 +86,13 @@ public class BeneficiaryController {
 	public ResponseEntity<String> deletebeneficiary(@PathVariable("id") int id) {
 		return beneService.deletebeneficiary(id);
 	}
+	
+	@PostMapping("/transfertobeneficiary")
+	public ResponseEntity<String> transfertobeneficiary(@RequestBody Bankaccount b){
+		return beneService.sendmoneytobeneficiary(b);
+	}
+	
+	//send moneyto beneficiary
+	//input bankacount obj send custid beneficiary acc no balance
 
 }

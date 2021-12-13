@@ -35,4 +35,6 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
 	@Query(value = "SELECT * FROM Customer c WHERE c.MOBILE = ?1 order by custid fetch next 1 row only", nativeQuery = true)
 	Customer findBymobile(BigInteger mobile);
 
+	
+
 }
