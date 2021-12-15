@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.cg.entity.Bankaccount;
 import com.cg.entity.Beneficiary;
 import com.cg.entity.Transaction;
+import com.cg.exception.InsufficientFundException;
 import com.cg.repository.BankAccountRepo;
 import com.cg.repository.BeneficiaryRepo;
 import com.cg.repository.CustomerRepo;
@@ -115,7 +116,7 @@ public class BeneficiaryService {
 
 	
 	
-	public ResponseEntity<String> sendmoneytobeneficiary(Bankaccount b){
+	public ResponseEntity<String> sendmoneytobeneficiary(Bankaccount b) throws InsufficientFundException{
 		int customer_id=b.getCustomer_id();
 		int wallet_id=walletrepo.getWalletidfromcustid(customer_id);
 		double walletbalance=walletrepo.getbalance(wallet_id);
@@ -135,7 +136,7 @@ public class BeneficiaryService {
 			
 		}
 		else {
-			return new ResponseEntity<String>("insufficient balance",HttpStatus.OK);
+			throw new InsufficientFundException(" Insufficient Funds ");
 		}
 		
 		}
@@ -143,13 +144,5 @@ public class BeneficiaryService {
 		
 	}
 	
-	//send moneyto beneficiary
-	//input bankacount obj send custid || beneficiary acc no balance
-	//get bene custid from accno
-	//wallet repo getbalance by custid
-	//validation
-	//bankacc service updatebalance bene acc,bene cust
-	//transaction 
-	//fund transfer successful
 	
 }

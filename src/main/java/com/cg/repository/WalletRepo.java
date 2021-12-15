@@ -1,5 +1,7 @@
 package com.cg.repository;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -50,5 +52,14 @@ public interface WalletRepo extends JpaRepository<Wallet, Integer> {
 
 	@Query(value = "SELECT Wallet_id FROM CUSTOMER c WHERE c.CUSTID =?1", nativeQuery = true)
 	int getWalletidfromcustid(int cust_id);
+
+	@Query(value="select * from wallet where walletid=?1",nativeQuery=true)
+	List<Wallet> getwalletbycustomerid(int id);
+	
+	
+	@Transactional
+	@Modifying
+	@Query(value="update wallet set balance = (balance - ?1) where walletid = ?2", nativeQuery=true)
+	 public void payBill(double billAmount, int walletid);
 
 }

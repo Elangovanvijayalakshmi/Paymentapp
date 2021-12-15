@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ import com.cg.service.TransactionService;
 import com.cg.service.WalletService;
 
 @RestController
-@RequestMapping("app/wallet/transaction")
+@RequestMapping("app/transaction")
 public class TransactionController {
 
 	@Autowired
@@ -45,6 +46,12 @@ public class TransactionController {
 	public Transaction addTransaction(@RequestBody Transaction t) {
 		return tservice.addTransaction(t);
 
+	}
+	
+	
+	@GetMapping("/getTransactionbycustomerid/{id}")
+	public List<Transaction> gettransactionbyid(@PathVariable("id")int id) {
+		return tservice.gettransactionbycustid(id);
 	}
 
 //	/**

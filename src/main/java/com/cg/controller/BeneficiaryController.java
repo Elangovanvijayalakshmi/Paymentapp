@@ -22,6 +22,7 @@ import com.cg.entity.Beneficiary;
 import com.cg.entity.Billpayment;
 import com.cg.entity.Customer;
 import com.cg.entity.Wallet;
+import com.cg.exception.InsufficientFundException;
 import com.cg.service.BankAccountService;
 import com.cg.service.BeneficiaryService;
 import com.cg.service.BillpaymentService;
@@ -88,7 +89,7 @@ public class BeneficiaryController {
 	}
 	
 	@PostMapping("/transfertobeneficiary")
-	public ResponseEntity<String> transfertobeneficiary(@RequestBody Bankaccount b){
+	public ResponseEntity<String> transfertobeneficiary(@RequestBody Bankaccount b) throws InsufficientFundException{
 		return beneService.sendmoneytobeneficiary(b);
 	}
 	

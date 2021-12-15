@@ -51,7 +51,8 @@ public interface BankAccountRepo extends JpaRepository<Bankaccount, Integer> {
 	 * 
 	 * @param custid
 	 */
-
+	@Transactional
+	@Modifying
 	@Query(value = "delete from bankaccount where customer_id=?1", nativeQuery = true)
 	void deletebankaccount(int custid);
 
@@ -67,7 +68,11 @@ public interface BankAccountRepo extends JpaRepository<Bankaccount, Integer> {
 	@Query(value = "update bankaccount set balance=(balance-?1) where accountno=?2 and customer_id=?3", nativeQuery = true)
 	void withdrawmoney(double amount, BigInteger acc_no, int custid);
 
-	@Query(value="select count(*) from bankaccount where accountno=?1 fetch next 1 row only",nativeQuery=true)
+
+	@Query(value="select count(*) from bankaccount where accountno=?1",nativeQuery=true)
+	int isValidBankAccount(BigInteger accountno);
+
+	@Query(value="select customer_id from bankaccount where accountno=?1 fetch next 1 row only",nativeQuery=true)
 	int getcustomerid(BigInteger accountno);
 
 }

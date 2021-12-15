@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,10 +75,16 @@ public class WalletController {
 		return wservice.updateBalance(w.getBalance(), w.getWalletid());
 	}
 	
-	@GetMapping("/showbalance")
+	@PostMapping("/showbalance")
 	public double showbalance(@RequestBody Wallet w) {
+		System.out.println("Show balance called");
 		return wservice.showbalance(w.getWalletid());
 		
+	}
+	@GetMapping("/getbycustomerid/{id}")
+	public List<Wallet> getbycustomerid(@PathVariable("id")int id)
+	{
+		return wservice.getwalletbycustomerid(id);
 	}
 
 }

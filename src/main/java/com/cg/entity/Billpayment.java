@@ -1,5 +1,6 @@
 package com.cg.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ public class Billpayment {
 	@Column
 	protected int customer_id;
 	@Column
-	protected Date ddate;
+	protected LocalDate ddate;
 	@Column
 	protected double amount;
 
@@ -40,7 +41,7 @@ public class Billpayment {
 	 * @param amount
 	 */
 
-	public Billpayment(int bill_id, String btype, int customer_id, Date ddate, double amount) {
+	public Billpayment(int bill_id, String btype, int customer_id, LocalDate ddate, double amount) {
 		super();
 		this.bill_id = bill_id;
 		this.btype = btype;
@@ -108,7 +109,7 @@ public class Billpayment {
 	 * @return
 	 */
 
-	public Date getDdate() {
+	public LocalDate getDdate() {
 		return ddate;
 	}
 
@@ -117,7 +118,7 @@ public class Billpayment {
 	 * @param ddate
 	 */
 
-	public void setDdate(Date ddate) {
+	public void setDdate(LocalDate ddate) {
 		this.ddate = ddate;
 	}
 

@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 import com.cg.entity.Bankaccount;
 import com.cg.entity.Billpayment;
 import com.cg.entity.Transaction;
+import com.cg.exception.AccountNotFoundException;
+import com.cg.exception.InsufficientFundException;
 import com.cg.repository.BankAccountRepo;
 import com.cg.repository.WalletRepo;
 
@@ -68,11 +70,14 @@ public class BankAccountService {
 	 * @param cu_id
 	 * @param acc_no
 	 * @return
+	 * @throws AccountNotFoundException 
 	 */
 
-	public double viewbalance(int cu_id, BigInteger acc_no) {
-		return baRepo.viewBalance(cu_id, acc_no);
-	}
+	public double viewbalance(int cu_id, BigInteger acc_no) throws AccountNotFoundException {
+		if(baRepo.isValidBankAccount(acc_no) == 0) {
+			throw new AccountNotFoundException("Account not Found");
+		}
+		return baRepo.viewBalance(cu_id, acc_no);}
 
 	/**
 	 * 
@@ -91,11 +96,15 @@ public class BankAccountService {
 	 * 
 	 * @param custid
 	 * @return
+	 * @throws AccountNotFoundException 
 	 */
 
-	public ResponseEntity<String> deletebankaccount(int custid) {
+	public ResponseEntity<String> deletebankaccount(int custid) throws AccountNotFoundException {
+		if(baRepo.getAccountByCustId(custid).size()<=0) {
+			throw new  AccountNotFoundException("Account not Found");
+		}
 		baRepo.deletebankaccount(custid);
-		return new ResponseEntity<String>("beneficiary of " + custid + " is deleted", HttpStatus.OK);
+		return new ResponseEntity<String>("Bank account is deleted", HttpStatus.OK);
 
 	}
 
@@ -104,9 +113,10 @@ public class BankAccountService {
 	 * @param b
 	 * @return
 	 * @throws JSONException
+	 * @throws InsufficientFundException 
 	 */
 
-	public ResponseEntity<String> addmoneytowallet(Bankaccount b) throws JSONException {
+	public ResponseEntity<String> addmoneytowallet(Bankaccount b) throws JSONException, InsufficientFundException {
 
 		BigInteger acc_no = b.getAccountno();
 		int cust_id = b.getCustomer_id();
@@ -123,10 +133,18 @@ public class BankAccountService {
 		Transaction t=transactionservice.addTransaction(new Transaction(0,type,date,wallet_id,amount,description));
 			
 		} else {
-			return new ResponseEntity<String>("Insufficient balance", HttpStatus.OK);
+			throw new InsufficientFundException("Insufficient funds");
 		}
 		return new ResponseEntity<String>("Added money to the wallet", HttpStatus.OK);
 
 	}
 
-}
+	public List<Bankaccount> getbycustomerid(int id) throws AccountNotFoundException {
+
+		if(baRepo.getAccountByCustId(id).size()<=0 ) {
+			throw new AccountNotFoundException("Account not Found");
+		}
+		return baRepo.getAccountByCustId(id);}
+	}
+
+

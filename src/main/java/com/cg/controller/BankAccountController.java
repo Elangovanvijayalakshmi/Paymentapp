@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.entity.Bankaccount;
+import com.cg.exception.AccountNotFoundException;
+import com.cg.exception.InsufficientFundException;
 import com.cg.service.BankAccountService;
 
 @RestController
@@ -61,10 +63,11 @@ public class BankAccountController {
 	 * 
 	 * @param b
 	 * @return
+	 * @throws AccountNotFoundException 
 	 */
 
-	@GetMapping("/getbalance/")
-	public double getbalance(@RequestBody Bankaccount b) {
+	@PostMapping("/getbalance")
+	public double getbalance(@RequestBody Bankaccount b) throws AccountNotFoundException {
 		return baccountservice.viewbalance(b.getCustomer_id(), b.getAccountno());
 	}
 
@@ -83,11 +86,14 @@ public class BankAccountController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws AccountNotFoundException 
 	 */
 
-	@PostMapping("/deletebankaccount/{id}")
-	public ResponseEntity<String> deletebankaccount(@PathVariable("id") int id) {
-		return baccountservice.deletebankaccount(id);
+	@PostMapping("/deletebankaccount")
+	public ResponseEntity<String> deletebankaccount(@RequestBody Bankaccount b) throws AccountNotFoundException {
+		int	cust_id=b.getCustomer_id();
+		return baccountservice.deletebankaccount(cust_id);
+		
 	}
 
 	/**
@@ -95,13 +101,20 @@ public class BankAccountController {
 	 * @param b
 	 * @return
 	 * @throws JSONException
+	 * @throws InsufficientFundException 
 	 */
 
 	@PostMapping("/addmoneytowallet")
-	public ResponseEntity<String> addMoneytoWallet(@RequestBody Bankaccount b) throws JSONException {
+	public ResponseEntity<String> addMoneytoWallet(@RequestBody Bankaccount b) throws JSONException, InsufficientFundException {
 		System.out.println(b.toString());
 		return baccountservice.addmoneytowallet(b);
 
+		
+		
+	}
+	@GetMapping("/getbycustomer/{id}")
+	public List<Bankaccount> getbycustomerid(@PathVariable("id") int id) throws AccountNotFoundException {
+		return baccountservice.getbycustomerid(id);
 	}
 
 }

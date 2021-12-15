@@ -65,6 +65,15 @@ public class WalletService {
 		// TODO Auto-generated method stub
 		return wRepo.getbalance(walletid);
 	}
+
+	public int getwalletidbycustid(int id) {
+		// TODO Auto-generated method stub
+		return wRepo.getWalletidfromcustid(id);
+	}
+
+	public List<Wallet> getwalletbycustomerid(int id) {
+		return wRepo.getwalletbycustomerid(id);
+	}
 	
 	
 

@@ -37,7 +37,7 @@ public class SignupService {
 	public ResponseEntity<String> addUserProfile(Userprofile up) {
 		Customer validate = customerservice.findBymobile(up.getMobile());
 		if (validate == null) {
-			Wallet w = walletservice.addWallet(new Wallet(0, 0));
+			Wallet w = walletservice.addWallet(new Wallet(0, 10000));
 			Customer cu = customerservice
 					.addCustomer(new Customer(0, up.getName(), up.getMobile(), w.getWalletid(), up.getPassword()));
 			Bankaccount ba = baccountservice.addBankAccount(new Bankaccount(up.getAccountno(), up.getIfsccode(),
