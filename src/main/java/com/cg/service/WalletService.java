@@ -17,38 +17,64 @@ public class WalletService {
 	@Autowired
 	private WalletRepo wRepo;
 
-	public ResponseEntity<String> addWallet(Wallet w) {
-		wRepo.save(w);
-		return new ResponseEntity("Added Wallet sucessfully",HttpStatus.OK);
+	/**
+	 * 
+	 * @param w
+	 * @return
+	 */
+	public Wallet addWallet(Wallet w) {
+		return wRepo.save(w);
+
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
+
 	public List<Wallet> getall() {
 		// TODO Auto-generated method stub
 		return wRepo.findAll();
-		
+
 	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 
 	public Wallet getbyid(int id) {
 		// TODO Auto-generated method stub
 		return wRepo.findById(id).get();
 	}
+
+	/**
+	 * 
+	 * @param bal
+	 * @param walletid
+	 * @return
+	 */
+
+	public Wallet updateBalance(double bal, int walletid) {
+		wRepo.updatebalance(bal, walletid);
+		return wRepo.findById(walletid).get();
+	}
+
+	public double showbalance(int walletid) {
+		// TODO Auto-generated method stub
+		return wRepo.getbalance(walletid);
+	}
+
+	public int getwalletidbycustid(int id) {
+		// TODO Auto-generated method stub
+		return wRepo.getWalletidfromcustid(id);
+	}
+
+	public List<Wallet> getwalletbycustomerid(int id) {
+		return wRepo.getwalletbycustomerid(id);
+	}
 	
-//	public List<Book> getAll(){
-//		return bRepo.findAll();
-//	}
-//	
-//	public Book getBook(int bid){
-//		return bRepo.findById(bid).get();
-//	}
-//	
-//	public List<Book> getByBname(String name) {
-//		System.out.println(bRepo.getByBname(name));
-//		return bRepo.getByBname(name);
-//	}
-//
-//	public Book updateBook(Book b) {
-//		bRepo.updatebyId(b.getBname(),b.getId());
-//		return bRepo.findById(b.getId()).get();
-//	}
-//	
+	
 
 }

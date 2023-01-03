@@ -1,5 +1,6 @@
 package com.cg.service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +17,57 @@ import com.cg.repository.CustomerRepo;
 public class CustomerService {
 	@Autowired
 	CustomerRepo customerrepo;
-	
-	public ResponseEntity<String> addCustomer(Customer c) {
-		customerrepo.save(c);
-		return new ResponseEntity("Added customer sucessfully",HttpStatus.OK);
-	}
-	public List<Customer> getall() {
-		// TODO Auto-generated method stub
-		return customerrepo.findAll();
-		
+
+	/**
+	 * 
+	 * @param c
+	 * @return
+	 */
+
+	public Customer addCustomer(Customer c) {
+		return customerrepo.save(c);
+
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+
+	public List<Customer> getall() {
+		return customerrepo.findAll();
+
+	}
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	public Customer getbyid(int id) {
-		// TODO Auto-generated method stub
 		return customerrepo.findById(id).get();
+	}
+
+	/**
+	 * 
+	 * @param mobile
+	 * @param password
+	 * @return
+	 */
+
+	public Customer login(BigInteger mobile, String password) {
+		return customerrepo.login(mobile, password);
+	}
+
+	/**
+	 * 
+	 * @param mobile
+	 * @return
+	 */
+
+	public Customer findBymobile(BigInteger mobile) {
+		return customerrepo.findBymobile(mobile);
 	}
 
 }

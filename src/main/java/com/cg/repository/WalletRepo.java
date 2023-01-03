@@ -14,5 +14,52 @@ import com.cg.entity.Wallet;
 @Repository
 public interface WalletRepo extends JpaRepository<Wallet, Integer> {
 
+	/**
+	 * 
+	 * @param bal
+	 * @param walletid
+	 */
+	@Transactional
+	@Modifying
+	@Query(value = "update wallet set balance=(balance-?1) where walletid=?2", nativeQuery = true)
+	void updatebalance(double bal, int walletid);
+
+	/**
+	 * 
+	 * @param cid
+	 * @return
+	 */
+
+	@Query(value = "select balance from wallet where walletid=?1", nativeQuery = true)
+	double getbalance(int cid);
+
+	/**
+	 * 
+	 * @param cid
+	 * @param amount
+	 */
+
+	@Transactional
+	@Modifying
+	@Query(value = "update wallet set balance=(balance+?2) where walletid=?1", nativeQuery = true)
+	void addmoneytowallet(int cid, double amount);
+
+	/**
+	 * 
+	 * @param cust_id
+	 * @return
+	 */
+
+	@Query(value = "SELECT Wallet_id FROM CUSTOMER c WHERE c.CUSTID =?1", nativeQuery = true)
+	int getWalletidfromcustid(int cust_id);
+
+	@Query(value="select * from wallet where walletid=?1",nativeQuery=true)
+	List<Wallet> getwalletbycustomerid(int id);
+	
+	
+	@Transactional
+	@Modifying
+	@Query(value="update wallet set balance = (balance - ?1) where walletid = ?2", nativeQuery=true)
+	 public void payBill(double billAmount, int walletid);
 
 }

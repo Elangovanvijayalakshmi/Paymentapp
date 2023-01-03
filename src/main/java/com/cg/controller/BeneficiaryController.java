@@ -1,9 +1,14 @@
 package com.cg.controller;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +22,7 @@ import com.cg.entity.Beneficiary;
 import com.cg.entity.Billpayment;
 import com.cg.entity.Customer;
 import com.cg.entity.Wallet;
+import com.cg.exception.InsufficientFundException;
 import com.cg.service.BankAccountService;
 import com.cg.service.BeneficiaryService;
 import com.cg.service.BillpaymentService;
@@ -30,36 +36,64 @@ public class BeneficiaryController {
 	@Autowired
 	private BeneficiaryService beneService;
 
-	@PostMapping("/add_beneficiary")
-	public ResponseEntity<String> addBeneficiary(@RequestBody Beneficiary bene) {
-		return beneService.addBeneficiary(bene);
+	/**
+	 * 
+	 * @param bene
+	 * @return
+	 * @throws JSONException
+	 */
+	@PostMapping(value = "/add_beneficiary", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Beneficiary> addBeneficiary(@RequestBody Beneficiary bene) throws JSONException {
+
+		if (beneService.isBeneficiaryExists(bene.getName(), bene.getMobilenumber(), bene.getAccountno()) <= 0) {
+			return null;
+		} else {
+			if (beneService.isBenificiaryLinked(bene.getCustid(), bene.getAccountno()) <= 0) {
+				return beneService.addBeneficiary(bene);
+			} else {
+				return beneService.getbycustomerid(bene.getCustid());
+			}
+		}
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	@GetMapping("/getall")
 	public List<Beneficiary> getAll() {
 		return beneService.getall();
 	}
 
-	@GetMapping("/getbyid/{id}")
-	public Beneficiary getbyid(@PathVariable("id") int id) {
-		return beneService.getbyid(id);
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
+	@GetMapping("/getbycustomerid/{id}") // end point
+	public List<Beneficiary> getbycustomerid(@PathVariable("id") int id) {
+		return beneService.getbycustomerid(id);
 	}
 
-	/*
-	 * @GetMapping("/getAll") public List<Book> getAll() { return bservice.getAll();
-	 * }
+	/**
 	 * 
-	 * @GetMapping("/getB/{id}") public Book getBook(@PathVariable("id") int bid) {
-	 * return bservice.getBook(bid);
-	 * 
-	 * }
-	 * 
-	 * @GetMapping("/getByBname/{nm}") public List<Book>
-	 * getByBname(@PathVariable("nm") String name) { System.out.println(name);
-	 * return bservice.getByBname(name); }
-	 * 
-	 * @PostMapping("/updateB") public Book updateBook(@RequestBody Book b) { return
-	 * bservice.updateBook(b); // return bservice.getAll(); }
+	 * @param id
+	 * @return
 	 */
+
+	@PostMapping("/deleteBeneficiary/{id}")
+	public ResponseEntity<String> deletebeneficiary(@PathVariable("id") int id) {
+		return beneService.deletebeneficiary(id);
+	}
+	
+	@PostMapping("/transfertobeneficiary")
+	public ResponseEntity<String> transfertobeneficiary(@RequestBody Bankaccount b) throws InsufficientFundException{
+		return beneService.sendmoneytobeneficiary(b);
+	}
+	
+	//send moneyto beneficiary
+	//input bankacount obj send custid beneficiary acc no balance
 
 }

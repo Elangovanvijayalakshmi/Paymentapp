@@ -15,5 +15,8 @@ import com.cg.entity.Wallet;
 @Repository
 public interface BillpaymentRepo extends JpaRepository<Billpayment, Integer> {
 
+	
+	@Query(value="select * from billpayment where customer_id=?1",nativeQuery=true)
+	List<Billpayment> getbycustomerid(int id);
 
 }

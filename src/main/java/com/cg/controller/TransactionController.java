@@ -18,73 +18,72 @@ import com.cg.entity.Bankaccount;
 import com.cg.entity.Beneficiary;
 import com.cg.entity.Billpayment;
 import com.cg.entity.Customer;
+import com.cg.entity.Transaction;
 import com.cg.entity.Wallet;
 import com.cg.service.BankAccountService;
 import com.cg.service.BeneficiaryService;
 import com.cg.service.BillpaymentService;
 import com.cg.service.CustomerService;
+import com.cg.service.TransactionService;
 import com.cg.service.WalletService;
 
 @RestController
-@RequestMapping("app/wallet")
-public class WalletController {
+@RequestMapping("app/transaction")
+public class TransactionController {
 
 	@Autowired
-	private WalletService wservice;
+	private TransactionService tservice;
+	/*
+	 * @Autowired private WalletService wservice;
+	 */
 
 	/**
 	 * 
-	 * @param w
+	 * @param t
 	 * @return
 	 */
-	@PostMapping("/addw")
-	public Wallet addWallet(@RequestBody Wallet w) {
-		return wservice.addWallet(w);
+	@PostMapping("/addtransaction")
+	public Transaction addTransaction(@RequestBody Transaction t) {
+		return tservice.addTransaction(t);
 
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-
-	@GetMapping("/getall")
-	public List<Wallet> getAll() {
-		return wservice.getall();
-	}
-
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 */
-
-	@GetMapping("/getbyid/{id}")
-	public Wallet getbyid(@PathVariable("id") int id) {
-		return wservice.getbyid(id);
-	}
-
-	/**
-	 * 
-	 * @param w
-	 * @return
-	 */
-
-	@PostMapping("/updatebal")
-	public Wallet updatebal(@RequestBody Wallet w) {
-		return wservice.updateBalance(w.getBalance(), w.getWalletid());
 	}
 	
-	@PostMapping("/showbalance")
-	public double showbalance(@RequestBody Wallet w) {
-		System.out.println("Show balance called");
-		return wservice.showbalance(w.getWalletid());
-		
+	
+	@GetMapping("/getTransactionbycustomerid/{id}")
+	public List<Transaction> gettransactionbyid(@PathVariable("id")int id) {
+		return tservice.gettransactionbycustid(id);
 	}
-	@GetMapping("/getbycustomerid/{id}")
-	public List<Wallet> getbycustomerid(@PathVariable("id")int id)
-	{
-		return wservice.getwalletbycustomerid(id);
-	}
+
+//	/**
+//	 * 
+//	 * @return
+//	 */
+//
+//	@GetMapping("/getall")
+//	public List<Wallet> getAll() {
+//		return wservice.getall();
+//	}
+//
+//	/**
+//	 * 
+//	 * @param id
+//	 * @return
+//	 */
+//
+//	@GetMapping("/getbyid/{id}")
+//	public Wallet getbyid(@PathVariable("id") int id) {
+//		return wservice.getbyid(id);
+//	}
+//
+//	/**
+//	 * 
+//	 * @param w
+//	 * @return
+//	 */
+//
+//	@PostMapping("/updatebal")
+//	public Wallet updatebal(@RequestBody Wallet w) {
+//		return wservice.updateBalance(w.getBalance(), w.getWalletid());
+//	}
 
 }

@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.entity.Billpayment;
+import com.cg.exception.BillNotFoundException;
+import com.cg.exception.CustomerNotFoundException;
+import com.cg.exception.InsufficientFundException;
 import com.cg.service.BillpaymentService;
 
 @RestController
@@ -20,36 +23,39 @@ public class BillPaymentController {
 	@Autowired
 	private BillpaymentService billpaymentservice;
 
+	/**
+	 * 
+	 * @param bill
+	 * @return
+	 * @throws CustomerNotFoundException 
+	 * @throws InsufficientFundException 
+	 */
 	@PostMapping("/add_billpayment")
-	public ResponseEntity<String> addBill(@RequestBody Billpayment bill) {
+	public Billpayment addBill(@RequestBody Billpayment bill) throws InsufficientFundException, CustomerNotFoundException {
 		return billpaymentservice.addBill(bill);
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	@GetMapping("/getall")
 	public List<Billpayment> getAll() {
 		return billpaymentservice.getall();
 	}
 
-	@GetMapping("/getbyid/{id}")
-	public Billpayment getbyid(@PathVariable("id") int id) {
-		return billpaymentservice.getbyid(id);
-	}
-	
-	/*
-	 * @GetMapping("/getAll") public List<Book> getAll() { return bservice.getAll();
-	 * }
+	/**
 	 * 
-	 * @GetMapping("/getB/{id}") public Book getBook(@PathVariable("id") int bid) {
-	 * return bservice.getBook(bid);
+	 * @param id
+	 * @return
+	 * @throws BillNotFoundException 
 	 * 
-	 * }
-	 * 
-	 * @GetMapping("/getByBname/{nm}") public List<Book>
-	 * getByBname(@PathVariable("nm") String name) { System.out.println(name);
-	 * return bservice.getByBname(name); }
-	 * 
-	 * @PostMapping("/updateB") public Book updateBook(@RequestBody Book b) { return
-	 * bservice.updateBook(b); // return bservice.getAll(); }
 	 */
+
+	@GetMapping("/getbycustomerid/{id}")
+	public List<Billpayment> getbycustomerid(@PathVariable("id") int id) throws BillNotFoundException  {
+		return billpaymentservice.getbycustomerid(id);
+	}
 
 }

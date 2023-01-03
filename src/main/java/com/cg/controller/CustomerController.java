@@ -30,36 +30,35 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerservice;
 
+	/**
+	 * 
+	 * @param cust
+	 * @return
+	 */
 	@PostMapping("/add_customer")
-	public ResponseEntity<String> addCustomer(@RequestBody Customer cust) {
+	public Customer addCustomer(@RequestBody Customer cust) {
 		return customerservice.addCustomer(cust);
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 
 	@GetMapping("/getall")
 	public List<Customer> getAll() {
 		return customerservice.getall();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	@GetMapping("/getbyid/{id}")
 	public Customer getbyid(@PathVariable("id") int id) {
 		return customerservice.getbyid(id);
 	}
-
-	/*
-	 * @GetMapping("/getAll") public List<Book> getAll() { return bservice.getAll();
-	 * }
-	 * 
-	 * @GetMapping("/getB/{id}") public Book getBook(@PathVariable("id") int bid) {
-	 * return bservice.getBook(bid);
-	 * 
-	 * }
-	 * 
-	 * @GetMapping("/getByBname/{nm}") public List<Book>
-	 * getByBname(@PathVariable("nm") String name) { System.out.println(name);
-	 * return bservice.getByBname(name); }
-	 * 
-	 * @PostMapping("/updateB") public Book updateBook(@RequestBody Book b) { return
-	 * bservice.updateBook(b); // return bservice.getAll(); }
-	 */
 
 }
