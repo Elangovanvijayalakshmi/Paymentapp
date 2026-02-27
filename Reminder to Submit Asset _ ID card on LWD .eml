@@ -1,0 +1,279 @@
+Received: from DB4PR02MB8679.eurprd02.prod.outlook.com (2603:10a6:10:381::10)
+ by AS8PR02MB7462.eurprd02.prod.outlook.com with HTTPS; Fri, 27 Feb 2026
+ 05:07:07 +0000
+Received: from AS1PR02MB8161.eurprd02.prod.outlook.com (2603:10a6:20b:474::20)
+ by DB4PR02MB8679.eurprd02.prod.outlook.com (2603:10a6:10:381::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.15; Fri, 27 Feb
+ 2026 05:07:05 +0000
+Received: from AS1PR02MB8161.eurprd02.prod.outlook.com
+ ([fe80::3206:4986:e2cc:6a9f]) by AS1PR02MB8161.eurprd02.prod.outlook.com
+ ([fe80::3206:4986:e2cc:6a9f%7]) with mapi id 15.20.9654.014; Fri, 27 Feb 2026
+ 05:07:05 +0000
+From: "J, Kushal" <kushal.j@capgemini.com>
+Subject: Reminder to Submit Asset / ID card on LWD 
+Thread-Topic: Reminder to Submit Asset / ID card on LWD 
+Thread-Index: AdynpuKNMvMkMj4TS0e6UB2TrZrNHg==
+Date: Fri, 27 Feb 2026 05:07:04 +0000
+Message-ID:
+	<AS1PR02MB81619101AD54944574964EF88A73A@AS1PR02MB8161.eurprd02.prod.outlook.com>
+Accept-Language: en-US, en-IN
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AS1PR02MB8161.eurprd02.prod.outlook.com
+X-MS-Has-Attach: yes
+X-MS-Exchange-Organization-Network-Message-Id:
+	862395bb-e15b-4aca-c508-08de75be0ce5
+X-MS-Exchange-Organization-SCL: 1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(425001)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	n3TVIIh2h8jtOhOFvlQZcZBDkqbQNggEi0qfPWnYhxJwaFu4HfYbtUVuOoA4JMFm3cdBI+OV36DeBNeOpSf+CGFV3dbJrw9kiDwX2MoD/+eTe8SgpFpbIFVN2V7lmMMNrd1Ls8YaRS/wnWZWUSXpr/qNr4/+P+ufap1IeJ1L5aq4qbCrRSbkib3D/DF3oRG5ZhYm2Yb8KP61H0MYY2vg+0MLaD867aMgPNBrXzZzcoh1vbITv8mqq/YSA/iL43aIy42RK5jgYRndl/uANvoHhhkEaOGvlKzOb0MqqmJbtDiiv525e/W/j++WFZsJF7fGyzhh9lfJrdXRyDYqEEKkBURB1IjScSHQy0+KhiuxQwEIFq1qhWFkifaAyTSNeJce0QE7/VEhnS3d+bWvuGLfKkeZB5IclZAC3mXEEKxGzrTqh4K1tiC05sf79+bzrlRn8DdbChbi0UxRfYAr8tV2SA6EP+vhP7TfYS/AOxBSAg+09hRXZRoEVxPvOz+1koQZ6iUYxTvHz0/p0OjyDkyPmzicf8nyXPEPGO+1X5tenJghTlRvSZ7YnWEQiO7W/Oqx1XE/MSrn+EvMAWpqTqpw4LzE/8mdTBDJhXgIEObM0CWFqBGgFsZRPkVDNEhfobaoTUV65bgQ2d9Uc62X4JawKL1P2ikDoDOVUy3SddvmndqCwcgeR3CrrqJPjRuBrVapajmY3qpkyaYSpHvdvPar1MKg8KLwTPt5X008q83PPzsF66lBn+L2/oL722xxf4n3br1bPPuxvxRPcpIqzBI03Dt6Gt7UQEo1kjMLjkblsKaN27TKXT0AAT8wU9vZLCILlaotM4+ssubLXyOxWh9UBz7lVyJoqi6KZ4UscrTrVlU=
+Content-Type: multipart/related;
+	boundary="_004_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+
+--_004_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_
+Content-Type: multipart/alternative;
+	boundary="_000_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_"
+
+--_000_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_
+Content-Type: text/plain; charset="us-ascii"
+
+Hello Greetings!!
+
+It is advised to be present Physically to the nearest DTA location on your LWD for surrender process.
+
+Kindly repay any due that is updated in ECMS at least 1 day prior your LWD. (Ignore if no due amount reflecting in ECMS)
+
+If surrender request is not auto generated 3 days before your LWD, you can raise a surrender request.
+Please create a PC surrender request selecting office drop within city. Office drop. - Post raising the request our team will be update you the asset surrender location address. Click on the below link to raise the surrender request. https://servicecentral.capgemini.com/sc?id=sc_cat_item&sys_id=d475deeddb7d24507b72043bd39619c3.
+Courier Facility is not available, you can submit the asset to the nearest DTA location. You can send the asset with your Family or Friends in case of Emergencies.
+Non-submission of asset may lead to negative financial impact during FNF & hence exit process.
+"Please visit Capgemini office between 09:00 hrs to 17:00 hrs from Monday - Friday for PC Surrender
+Thanks & Regards,
+_____________________________________________________________
+
+KUSHAL J
+Analyst/Software Engineer
+Capgemini  Technology Services India Limited  | Bangalore
+[cid:image001.png@01DCA7D5.02220990]
+www.capgemini.com<http://www.capgemini.com/>
+158-162 & 165-170, EPIP Phase II, Whitefield | Bangalore 560 066
+
+
+
+--_000_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_
+Content-Type: text/html; charset="us-ascii"
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="Generator" content="Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;
+	mso-ligatures:standardcontextual;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#467886;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang="EN-IN" link="#467886" vlink="#96607D" style="word-wrap:break-word">
+<div class="WordSection1">
+<p class="MsoNormal">Hello Greetings!!<o:p></o:p></p>
+<p class="MsoNormal"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</b><o:p></o:p></p>
+<p class="MsoNormal"><b>It is advised to be present Physically to the nearest DTA location on your LWD for surrender process.</b><o:p></o:p></p>
+<p class="MsoNormal"><b>&nbsp;</b><o:p></o:p></p>
+<p class="MsoNormal"><b>Kindly repay any due that is updated in ECMS at least 1 day prior your LWD. (Ignore if no due amount reflecting in ECMS)</b><o:p></o:p></p>
+<p class="MsoNormal">&nbsp;<o:p></o:p></p>
+<p class="MsoNormal">If surrender request is not auto generated 3 days before your LWD, you can raise a surrender request.<o:p></o:p></p>
+<p class="MsoNormal">Please create a PC surrender request selecting office drop within city. Office drop. &#8211; Post raising the request our team will be update you the asset surrender location address. Click on the below link to raise the surrender request.
+<a href="https://servicecentral.capgemini.com/sc?id=sc_cat_item&amp;sys_id=d475deeddb7d24507b72043bd39619c3" target="_blank" title="https://servicecentral.capgemini.com/sc?id=sc_cat_item&amp;sys_id=d475deeddb7d24507b72043bd39619c3">
+https://servicecentral.capgemini.com/sc?id=sc_cat_item&amp;sys_id=d475deeddb7d24507b72043bd39619c3</a>.<o:p></o:p></p>
+<p class="MsoNormal">Courier Facility is not available, you can submit the asset to the
+<b>nearest DTA location</b>. You can send the asset with your <b>Family or Friends</b>&nbsp;in case of Emergencies.<o:p></o:p></p>
+<p class="MsoNormal">Non-submission of asset may lead to negative financial impact during FNF &amp; hence exit process.<o:p></o:p></p>
+<p class="MsoNormal">&#8220;Please visit Capgemini office between 09:00 hrs to 17:00 hrs from Monday &#8211; Friday for PC Surrender<o:p></o:p></p>
+<p class="MsoNormal" style="background:white"><b><span lang="EN-US" style="font-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#2E74B5;mso-fareast-language:EN-IN">Thanks &amp; Regards,</span></b><b><span lang="EN-US" style="font-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-IN"><o:p></o:p></span></b></p>
+<p class="MsoNormal" style="background:white"><b><span lang="EN-US" style="font-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#2E74B5;mso-fareast-language:EN-IN">_____________________________________________________________</span></b><span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#201F1E;mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+<p class="MsoNormal" style="background:white"><b><span lang="EN-US" style="font-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-IN"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="background:white"><b><span lang="EN-US" style="font-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#2E74B5;mso-fareast-language:EN-IN">KUSHAL J
+<o:p></o:p></span></b></p>
+<p class="MsoNormal" style="background:white"><span lang="EN-US" style="font-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:black;mso-fareast-language:EN-IN">Analyst/Software Engineer</span><span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#201F1E;mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+<p class="MsoNormal" style="background:white"><span lang="FR" style="font-size:9.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:black;mso-fareast-language:EN-IN">Capgemini&nbsp; Technology Services India Limited&nbsp; | Bangalore</span><span lang="EN-US" style="font-size:11.0pt;color:#201F1E;mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+<p class="MsoNormal" style="background:white"><span lang="EN-US" style="font-size:11.0pt;color:black;mso-fareast-language:EN-IN"><img border="0" width="142" height="24" style="width:1.4791in;height:.25in" id="Picture_x0020_1" src="cid:image001.png@01DCA7D5.02220990"></span><span lang="EN-US" style="font-size:11.0pt;mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+<p class="MsoNormal" style="background:white"><span lang="EN-US" style="font-size:11.0pt;color:black;mso-fareast-language:EN-IN"><a href="http://www.capgemini.com/" target="_blank"><span style="font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:black">www.capgemini.com</span></a></span><span lang="EN-US" style="font-size:11.0pt;color:#201F1E;mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+<p class="MsoNormal" style="background:white"><span lang="EN-US" style="font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:black;mso-fareast-language:EN-IN">158-162 &amp; 165-170, EPIP Phase II, Whitefield | Bangalore 560 066</span><span lang="EN-US" style="font-size:11.0pt;color:#201F1E;mso-fareast-language:EN-IN"><o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size:11.0pt"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_--
+
+--_004_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=6744;
+	creation-date="Fri, 27 Feb 2026 05:07:03 GMT";
+	modification-date="Fri, 27 Feb 2026 05:07:07 GMT"
+Content-ID: <image001.png@01DCA7D5.02220990>
+Content-Transfer-Encoding: base64
+
+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
+
+--_004_AS1PR02MB81619101AD54944574964EF88A73AAS1PR02MB8161eurp_--
